@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Prince Benson Waimai</title>
+</head>
+<body>
+	<h1>Prince Benson Waimai</h1>
+	<p>Tasty Treats To Your Door</p>
+
+	<h2>Here are all our items!</h2>
+
+	<!-- Item 1 -->
+	<p>Taco: 99RMB</p>
+	<img src="http://www.tacotime.com/assets/images/menu/tacos/crisp-lg.png">
+	<br>
+
+	<!-- Item 2 -->
+	<p>Burrito: 199RMB</p>
+	<img src="http://i1.douguo.net/upload/caiku/8/f/1/8f714e2b0b0ed3a0a98de051ea37f141.jpg">
+
+	<!-- Item 3 -->
+	<p>Steak: 999RMB</p>
+	<img src="http://www.creationsbykara.com/wp-content/uploads/2012/05/steak-marinade-003.jpg">
+
+	<!-- Order Form -->
+	<h2>Place your Order</h2>
+	<form action="{% url 'order:home_page' %}" method="POST">
+		{% csrf_token %}	
+		<input type="text" name="item" placeholder="Please Type Which Item You Want"><br>
+		<textarea name="address" placeholder="Please Type Your Address"></textarea><br>
+		<input type="submit" value="Place Your Order">
+	</form>
+
+	<!-- Show Order -->
+	<h1>Your Order:</h1>
+	<p>Item Ordered: {{item}}</p>
+	<p>Delivery Address: {{address}}</p>
+
+</body>
+</html>
